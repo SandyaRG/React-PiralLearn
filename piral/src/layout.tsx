@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { ComponentsState, ErrorComponentsState, Menu, Notifications, SwitchErrorInfo, MenuItemProps } from 'piral';
-import { MyDashboardContainer, MyDashboardTile } from './layout/DashboardContainer';
+import SideMenu from './layout/SideMenu';
+import { FaBars, FaBuilding, FaPowerOff } from 'react-icons/fa';
+import './App.css'
 
-const MenuItem: React.FC<MenuItemProps> = ({ children }) => <li className="nav-item">{children}</li>;
+const MenuItem: React.FC<MenuItemProps> = ({ children }) => <li className="nav-item"> <FaBuilding /> {children} </li>;
 
 const defaultTiles = (
   <>
@@ -55,6 +57,15 @@ const defaultMenuItems = (
   </>
 );
 
+export const layOutData: Partial<ComponentsState> = {
+  Layout: ({ children }) => {
+    
+     return (<>
+      {children}
+      </>
+    )},
+};
+
 export const errors: Partial<ErrorComponentsState> = {
   not_found: () => (
     <div>
@@ -73,46 +84,88 @@ export const layout: Partial<ComponentsState> = {
       <SwitchErrorInfo {...props} />
     </div>
   ),
-  DashboardContainer: MyDashboardContainer,
-  DashboardTile: MyDashboardTile,
-  // MenuContainer: ({ children }) => {
-  //   const [collapsed, setCollapsed] = React.useState(true);
-  //   return (
-  //     <header>
-  //       <nav className="navbar navbar-light navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3">
-  //         <div className="container">
-  //           <Link className="navbar-brand" to="/">
-  //             Piral
-  //           </Link>
-  //           <button
-  //             aria-label="Toggle navigation"
-  //             type="button"
-  //             onClick={() => setCollapsed(!collapsed)}
-  //             className="navbar-toggler mr-2">
-  //             <span className="navbar-toggler-icon" />
-  //           </button>
-  //           <div
-  //             className={`collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse ${collapsed ? '' : 'show'}`}
-  //             aria-expanded={!collapsed}>
-  //             <ul className="navbar-nav flex-grow">
-  //               {children}
-  //               {defaultMenuItems}
-  //             </ul>
-  //           </div>
-  //         </div>
-  //       </nav>
-  //     </header>
-  //   );
-  // },
-  // MenuItem,
-  // NotificationsHost: ({ children }) => <div className="notifications">{children}</div>,
-  // NotificationsToast: ({ options, onClose, children }) => (
-  //   <div className={`notification-toast ${options.type}`}>
-  //     <div className="notification-toast-details">
-  //       {options.title && <div className="notification-toast-title">{options.title}</div>}
-  //       <div className="notification-toast-description">{children}</div>
-  //     </div>
-  //     <div className="notification-toast-close" onClick={onClose} />
-  //   </div>
-  // ),
+  DashboardContainer: ({ children }) => (
+    <div>
+      {/* <h1>Hello, world!</h1>
+      <p>Welcome to your new microfrontend app shell, built with:</p> */}
+      <div className="tiles">
+        {/* {defaultTiles} */}
+        {children}
+      </div>
+    </div>
+  ),
+  DashboardTile: ({ columns, rows, children }) => <div className={`tile cols-${columns} rows-${rows}`}>{children}</div>,
+  Layout: ({ children }) => (
+  <>
+    <div>
+      {/* <Notifications /> */}
+      <Menu type="general" />
+      <div className="mainData">{children}</div>
+    </div>
+    </>
+  ),
+  MenuContainer: ({ children }) => {
+    const [collapsed, setCollapsed] = React.useState(true);
+    //const abc = layOutData;
+    return (
+      // <header>
+      //   <nav className="navbar navbar-light navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3">
+      //     <div className="container">
+      //       <Link className="navbar-brand" to="/">
+      //         Piral
+      //       </Link>
+      //       <button
+      //         aria-label="Toggle navigation"
+      //         type="button"
+      //         onClick={() => setCollapsed(!collapsed)}
+      //         className="navbar-toggler mr-2">
+      //         <span className="navbar-toggler-icon" />
+      //       </button>
+      //       <div
+      //         className={`collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse ${collapsed ? '' : 'show'}`}
+      //         aria-expanded={!collapsed}>
+      //         <ul className="navbar-nav flex-grow">
+      //           {children}
+      //           {defaultMenuItems}
+      //         </ul>
+      //       </div>
+      //     </div>
+      //   </nav>
+      // </header>
+
+      <div className="fullLayout">
+        <div className="sidebar">
+          <div className='top_section'>
+                    <h1 className='logo'>Logo</h1>
+                    <div className='bars'>
+                        <FaBars/>
+                    </div>
+                    <div className='bars' >
+                        <FaPowerOff/>
+                    </div>
+                </div>
+           
+            <div
+              className={`collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse ${collapsed ? '' : 'show'}`}
+              aria-expanded={!collapsed}>
+              <ul className="sidebarList">
+              {children}
+              </ul>
+            </div>
+        </div>
+        {/* <div className="mainData">{abc}</div> */}
+    </div>
+    );
+  },
+  MenuItem,
+  NotificationsHost: ({ children }) => <div className="notifications">{children}</div>,
+  NotificationsToast: ({ options, onClose, children }) => (
+    <div className={`notification-toast ${options.type}`}>
+      <div className="notification-toast-details">
+        {options.title && <div className="notification-toast-title">{options.title}</div>}
+        <div className="notification-toast-description">{children}</div>
+      </div>
+      <div className="notification-toast-close" onClick={onClose} />
+    </div>
+  ),
 };

@@ -19,6 +19,7 @@ export function setup(app: PiletApi) {
   const AuthToken = app.getData("AuthToken");
   // alert(role);
   // alert(AuthToken);
+  
 
   app.registerPage('/page', Page);
   app.registerPage('/Department', Department);
