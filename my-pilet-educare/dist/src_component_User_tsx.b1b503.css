@@ -1,0 +1,124 @@
+/*!*************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style/student.css ***!
+  \*************************************************************************/
+.studentTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .studentTable td, .studentTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .studentTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .studentTable tr:hover {background-color: #ddd;}
+  
+  .studentTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .addstudentbtn {
+    width: 15%;
+    background-color: #4CAF50;
+    color: white;
+    margin: 20px 0px;
+    margin-left: auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .d-flex{
+    display: flex;
+  }
+
+  .addbtn{
+    height: fit-content;
+    margin-left: auto;
+    margin-top: 15px;
+  }
+
+  .align-right{
+    text-align: right;
+  }
+
+  .deleteDialogYesBtn {
+    width: 15%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .deleteDialogNoBtn {
+    width: 15%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .ml-10{
+    margin-left: 10px;
+  }
+/*!****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style/addStudent.css ***!
+  \****************************************************************************/
+.container{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+.submitbtn{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.txtbox{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.drpdown{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.selectdrpdown{
+    height: 30px;
+}
+.align-right{
+    text-align: right;
+}
+.mr-10{
+    margin-right: 10px;
+}
+.ml-25{
+    margin-left: 25px;
+}
+.mt-15{
+    margin-top: 15px;
+}
+
+/*# sourceMappingURL=src_component_User_tsx.b1b503.css.map*/

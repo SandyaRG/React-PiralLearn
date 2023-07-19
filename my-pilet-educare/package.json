@@ -1,0 +1,45 @@
+{
+  "name": "my-pilet-educare",
+  "version": "1.0.3",
+  "description": "",
+  "keywords": [
+    "pilet"
+  ],
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "piral": "file:..\\piral\\dist\\emulator\\piral-1.0.0.tgz",
+    "piral-cli": "1.0.2",
+    "piral-cli-webpack5": "1.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router": "5.3.4",
+    "react-router-dom": "5.3.4",
+    "tslib": "2.6.0",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "start": "pilet debug",
+    "build": "pilet build",
+    "upgrade": "pilet upgrade"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "importmap": {
+    "imports": {},
+    "inherit": [
+      "piral"
+    ]
+  },
+  "source": "src/index.tsx",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "firebase": "^10.0.0",
+    "primeicons": "^6.0.1",
+    "primereact": "^9.6.0",
+    "react-icons": "^4.10.1"
+  }
+}
